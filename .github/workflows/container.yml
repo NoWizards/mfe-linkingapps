@@ -16,12 +16,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@master
       - run: npm install
       - run: npm run build
 
-      - uses: shinyinc/action-aws-cli@v1.2
-      - run: aws s3 sync dist s3://mfe-dashboard-wizards/container/latest
+      - uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_S3_BUCKET: mfe-dashboard-wizards
+          AWS_ACCESS_KEY_ID: AKIAT4GUQGOK2MOKDGMF
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-west-2'  
+ 
