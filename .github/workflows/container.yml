@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: jakejarvis/s3-sync-action@master
         with:
-          args: public-read --follow-symlinks --delete
+          args: --follow-symlinks --delete
         env:
           AWS_S3_BUCKET: mfe-dashboard-wizards
           AWS_ACCESS_KEY_ID: AKIAT4GUQGOK2MOKDGMF
