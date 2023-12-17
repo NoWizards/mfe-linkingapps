@@ -28,6 +28,6 @@ jobs:
           AWS_ACCESS_KEY_ID: AKIAT4GUQGOK2MOKDGMF
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-west-2' 
-          SOURCE_DIR: 'dist'
+          SOURCE_DIR: 'packages/container/dist'
           DEST_DIR: 'container/latest'
  
